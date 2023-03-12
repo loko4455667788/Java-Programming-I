@@ -1,0 +1,15 @@
+// QuartsToGallons.java
+class QuartsToGallons {
+    public static final int QUARTS_IN_GALLON = 4;
+
+    public static void main(String[] args) {
+        int quartsNeeded = 18; 
+
+        int gallonsNeeded = quartsNeeded / QUARTS_IN_GALLON;
+        int quartsRemaining = quartsNeeded % QUARTS_IN_GALLON;
+
+        System.out.print("A job that needs " + quartsNeeded + " quarts requires ");
+        System.out.print(gallonsNeeded + " gallons plus ");
+        System.out.println(quartsRemaining + " quarts.");
+    }
+}
