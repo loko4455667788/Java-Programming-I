@@ -1,0 +1,26 @@
+import java.util.Scanner;
+
+class MileConversionsInteractive {
+    public static void main(String[] args) {
+        final double INCHES_IN_MILE = 63360;
+        final double FEET_IN_MILE = 5280;
+        final double YARDS_IN_MILE = 1760;
+
+        Scanner scanner = new Scanner(System.in);
+
+        try {
+            System.out.print("Enter miles >> ");
+            double miles = scanner.nextDouble();
+            double inches = miles * INCHES_IN_MILE;
+            double feet = miles * FEET_IN_MILE;
+            double yards = miles * YARDS_IN_MILE;
+            System.out.println(miles + " miles is " + inches +
+                " inches, or " + feet + " feet, or " +
+                yards + " yards");
+        } catch (Exception e) {
+            System.out.println("Error: Invalid input.");
+        } finally {
+            scanner.close();
+        }
+    }
+}
