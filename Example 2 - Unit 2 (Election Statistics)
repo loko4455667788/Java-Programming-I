@@ -1,0 +1,41 @@
+import java.util.Scanner;
+
+public class ElectionResults {
+    public static void main(String[] args) {
+        // create a Scanner object for user input
+        Scanner input = new Scanner(System.in);
+
+        // get input from user for each party
+        System.out.print("Enter the name of party 1: ");
+        String party1 = input.nextLine();
+        System.out.print("Enter the number of votes received by " + party1 + ": ");
+        int votes1 = input.nextInt();
+
+        input.nextLine(); // consume the newline character
+
+        System.out.print("Enter the name of party 2: ");
+        String party2 = input.nextLine();
+        System.out.print("Enter the number of votes received by " + party2 + ": ");
+        int votes2 = input.nextInt();
+
+        input.nextLine(); // consume the newline character
+
+        System.out.print("Enter the name of party 3: ");
+        String party3 = input.nextLine();
+        System.out.print("Enter the number of votes received by " + party3 + ": ");
+        int votes3 = input.nextInt();
+
+        // calculate the total number of votes
+        int totalVotes = votes1 + votes2 + votes3;
+
+        // calculate the percentage of votes received by each party
+        double percent1 = (double) votes1 / totalVotes * 100;
+        double percent2 = (double) votes2 / totalVotes * 100;
+        double percent3 = (double) votes3 / totalVotes * 100;
+
+        // display the results
+        System.out.println(party1 + " received " + percent1 + "% of the vote.");
+        System.out.println(party2 + " received " + percent2 + "% of the vote.");
+        System.out.println(party3 + " received " + percent3 + "% of the vote.");
+    }
+}
