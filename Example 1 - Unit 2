@@ -1,0 +1,20 @@
+import java.util.Scanner;
+
+public class MinutesToHoursAndDays {
+    public static void main(String[] args) {
+        // create a Scanner object for user input
+        Scanner input = new Scanner(System.in);
+
+        // get input from user
+        System.out.print("Enter the number of minutes: ");
+        int minutes = input.nextInt();
+
+        // calculate hours and days
+        int hours = minutes / 60;
+        int days = hours / 24;
+
+        // print the results
+        System.out.println("The number of hours is: " + hours);
+        System.out.println("The number of days is: " + days);
+    }
+}
