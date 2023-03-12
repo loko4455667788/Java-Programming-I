@@ -1,0 +1,19 @@
+import java.util.Scanner;
+class Eggs {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int numEggs;
+        System.out.print("Enter the number of eggs: ");
+        numEggs = scanner.nextInt();
+        scanner.close();
+        
+        int numDozens = numEggs / 12;
+        int numLoose = numEggs % 12;
+        double totalCost = numDozens * 3.25 + numLoose * 0.45;
+        
+        System.out.println("You ordered " + numEggs + " eggs. That's " +
+            numDozens + " dozen at $3.25 per dozen and " + numLoose +
+            " loose eggs at 45 cents each for a total of $" +
+            String.format("%.2f", totalCost) + ".");
+    }
+}
