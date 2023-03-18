@@ -1,0 +1,36 @@
+import java.time.*;
+
+public class FitnessTracker {
+    String activity;
+    int minutes;
+    LocalDate date;
+    
+    // Default constructor
+    public FitnessTracker() {
+        this.activity = "running";
+        this.minutes = 0;
+        this.date = LocalDate.ofYearDay(LocalDate.now().getYear(), 1);
+    }
+    
+    // Constructor with parameters
+    public FitnessTracker(String a, int m, LocalDate d) {
+        this.activity = a;
+        this.minutes = m;
+        this.date = d;
+    }
+    
+    // Getter method for activity
+    public String getActivity() {
+        return this.activity;
+    }
+    
+    // Getter method for minutes
+    public int getMinutes() {
+        return this.minutes;
+    }
+    
+    // Getter method for date
+    public LocalDate getDate() {
+        return this.date;
+    }
+}
