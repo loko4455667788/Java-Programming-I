@@ -1,0 +1,60 @@
+import java.util.Scanner;
+
+public class AcmePay {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Please enter shift - 1, 2, or 3: ");
+        int shift = scanner.nextInt();
+
+        System.out.print("Please enter hours worked: ");
+        double hours = scanner.nextDouble();
+
+        double hourlyRate;
+        switch (shift) {
+            case 1:
+                hourlyRate = 17.0;
+                break;
+            case 2:
+                hourlyRate = 18.5;
+                break;
+            case 3:
+                hourlyRate = 22.0;
+                break;
+            default:
+                System.out.println("Invalid shift");
+                return;
+        }
+
+        double regularPay, overtimePay;
+        if (hours <= 40) {
+            regularPay = hours * hourlyRate;
+            overtimePay = 0;
+        } else {
+            regularPay = 40 * hourlyRate;
+            overtimePay = (hours - 40) * hourlyRate * 1.5;
+        }
+
+        double totalPay = regularPay + overtimePay;
+
+        double retirementDeduction = 0;
+        if (shift == 2 || shift == 3) {
+            System.out.print("Do you want to participate in the retirement plan?\n"
+                    + "  Enter 1 for Yes and 2 for No.\n"
+                    + ">");
+            int choice = scanner.nextInt();
+            if (choice == 1) {
+                retirementDeduction = totalPay * 0.03;
+            }
+        }
+
+        double netPay = totalPay - retirementDeduction;
+
+        System.out.println("Hours worked is    " + hours);
+        System.out.println("Hourly pay rate is " + hourlyRate);
+        System.out.println("Regular pay is     " + regularPay);
+        System.out.println("Overtime pay is    " + overtimePay);
+        System.out.println("Retirement deduction is " + retirementDeduction);
+        System.out.println("Net pay is          " + netPay);
+    }
+}
