@@ -1,0 +1,32 @@
+import java.util.Scanner;
+
+public class CellPhoneService {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Enter talk minutes needed: ");
+        int talkMinutes = scanner.nextInt();
+
+        System.out.print("Enter text messages needed: ");
+        int textMessages = scanner.nextInt();
+
+        System.out.print("Enter gigabytes of data needed: ");
+        int dataGB = scanner.nextInt();
+
+        if (talkMinutes < 500 && textMessages == 0 && dataGB == 0) {
+            System.out.println("Plan A $49 per month");
+        } else if (talkMinutes < 500 && textMessages > 0 && dataGB == 0) {
+            System.out.println("Plan B $55 per month");
+        } else if (talkMinutes >= 500 && dataGB == 0) {
+            if (textMessages < 100) {
+                System.out.println("Plan C $61 per month");
+            } else {
+                System.out.println("Plan D $70 per month");
+            }
+        } else if (dataGB < 3) {
+            System.out.println("Plan E $79 per month");
+        } else {
+            System.out.println("Plan F $87 per month");
+        }
+    }
+}
