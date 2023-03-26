@@ -1,0 +1,35 @@
+public class TestJobApplicants {
+    public static void main(String[] args) {
+        JobApplicant johnson = new JobApplicant("Johnson", "312-345-9875", true, false, true, false);
+        JobApplicant kermit = new JobApplicant("Kermit", "312-543-1275", true, false, false, true);
+        JobApplicant lawrence = new JobApplicant("Lawrence", "608-288-09125", true, true, true, false);
+        JobApplicant mitchell = new JobApplicant("Mitchell", "815-288-3881", true, true, false, true);
+
+        JobApplicant[] applicants = {johnson, kermit, lawrence, mitchell};
+
+        for (JobApplicant applicant : applicants) {
+            if (isQualified(applicant)) {
+                System.out.println(applicant.getName() + " is qualified for an interview \tPhone: " + applicant.getPhone());
+            } else {
+                System.out.println(applicant.getName() + " is not qualified for an interview at this time \tPhone: " + applicant.getPhone());
+            }
+        }
+    }
+
+    public static boolean isQualified(JobApplicant applicant) {
+        int count = 0;
+        if (applicant.getHasWordSkill()) {
+            count++;
+        }
+        if (applicant.getHasSpreadsheetSkill()) {
+            count++;
+        }
+        if (applicant.getHasDatabaseSkill()) {
+            count++;
+        }
+        if (applicant.getHasGraphicsSkill()) {
+            count++;
+        }
+        return count >= 3;
+    }
+}
