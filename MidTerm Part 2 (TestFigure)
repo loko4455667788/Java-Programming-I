@@ -1,0 +1,31 @@
+import java.util.Scanner;
+
+public class TestFigure {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        
+        // Rectangle
+        System.out.print("Enter side of the rectangle >> ");
+        double side = input.nextDouble();
+        
+        Figure rectangle = new Figure(side);
+        double areaRectangle = rectangle.computeAreaRectangle();
+        double perimeterRectangle = rectangle.computePerimeterRectangle();
+
+        System.out.println("The area of the rectangle with side " + side + " is = " + areaRectangle);
+        System.out.println("The perimeter of the rectangle with side " + side + " is = " + perimeterRectangle);
+
+        // Triangle
+        System.out.print("\nEnter base of the right isosceles triangle >> ");
+        double base = input.nextDouble();
+        System.out.print("Enter height of the right isosceles triangle >> ");
+        double height = input.nextDouble();
+
+        Figure triangle = new Figure(base, height);
+        double areaTriangle = triangle.computeAreaTriangle();
+        double perimeterTriangle = triangle.computePerimeterTriangle();
+
+        System.out.println("The area of the right isosceles triangle with base " + base + " and height " + height + " is = " + areaTriangle);
+        System.out.println("The perimeter of the right isosceles triangle with base " + base + " and height " + height + " is = " + perimeterTriangle);
+    }
+}
