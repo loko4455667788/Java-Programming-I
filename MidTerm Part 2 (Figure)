@@ -1,0 +1,30 @@
+public class Figure {
+    private double side;
+    private double base;
+    private double height;
+
+    public Figure(double side) {
+        this.side = side;
+    }
+
+    public Figure(double base, double height) {
+        this.base = base;
+        this.height = height;
+    }
+
+    public double computeAreaRectangle() {
+        return side * side;
+    }
+
+    public double computeAreaTriangle() {
+        return (base * height) / 2;
+    }
+
+    public double computePerimeterRectangle() {
+        return 4 * side;
+    }
+
+    public double computePerimeterTriangle() {
+        return (2 * base) + height;
+    }
+}
