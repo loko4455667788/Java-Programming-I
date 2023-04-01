@@ -1,0 +1,15 @@
+public class IncreasedProduction {
+    public static void main (String[] args) {
+        double production = 4000.0;
+        int month = 1;
+        while(month <= 24) {
+            System.out.println("Month " + month + " production: " + production);
+            if(production > 13000.0) {
+                System.out.println("The month in which production exceeds 7000.0 is month " + month + ".");
+                break;
+            }
+            production *= 1.06;
+            month++;
+        }
+    }
+}
