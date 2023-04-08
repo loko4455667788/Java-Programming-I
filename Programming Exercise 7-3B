@@ -1,0 +1,21 @@
+import java.util.*;
+
+public class CountSpaces2 {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        System.out.print("Enter an inspirational quote >> ");
+        String quote = input.nextLine();
+        int count = calculateSpaces(quote);
+        System.out.println("The number of spaces is " + count);
+    }
+    
+    public static int calculateSpaces(String quote) {
+        int count = 0;
+        for (int i = 0; i < quote.length(); i++) {
+            if (quote.charAt(i) == ' ') {
+                count++;
+            }
+        }
+        return count;
+    }
+}
