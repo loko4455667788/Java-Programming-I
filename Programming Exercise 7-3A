@@ -1,0 +1,17 @@
+public class CountSpaces {
+    public static void main(String[] args) {
+        String quote = "The only way to do great work is to love what you do. - Steve Jobs";
+        int numSpaces = calculateSpaces(quote);
+        System.out.println("Number of spaces: " + numSpaces);
+    }
+    
+    public static int calculateSpaces(String inString) {
+        int count = 0;
+        for (int i = 0; i < inString.length(); i++) {
+            if (inString.charAt(i) == ' ') {
+                count++;
+            }
+        }
+        return count;
+    }
+}
