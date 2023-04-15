@@ -1,0 +1,61 @@
+public class Employee {
+    private String firstName;
+    private String lastName;
+    private double hourlyRate;
+    private int hoursWorked;
+
+    // Constructor for Employee
+    public Employee(String firstName, String lastName, double hourlyRate, int hoursWorked) {
+        setFirstName(firstName);
+        setLastName(lastName);
+        setHourlyRate(hourlyRate);
+        setHoursWorked(hoursWorked);
+    }
+
+    // Setter methods
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    public void setHourlyRate(double hourlyRate) {
+        if (hourlyRate > 0) {
+            this.hourlyRate = hourlyRate;
+        } else {
+            this.hourlyRate = 0.0;
+        }
+    }
+
+    public void setHoursWorked(int hoursWorked) {
+        if (hoursWorked > 0) {
+            this.hoursWorked = hoursWorked;
+        } else {
+            this.hoursWorked = 0;
+        }
+    }
+
+    // Getter methods
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public double getHourlyRate() {
+        return hourlyRate;
+    }
+
+    public int getHoursWorked() {
+        return hoursWorked;
+    }
+
+    // Method to calculate salary
+    public double getSalaryAmount() {
+        return hourlyRate * hoursWorked;
+    }
+}
