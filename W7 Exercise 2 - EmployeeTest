@@ -1,0 +1,49 @@
+import javax.swing.*;
+import java.util.*;
+
+public class EmployeeTest {
+    public static void main(String args[]) {
+
+        List<Employee> employees = new ArrayList<>();
+
+        while (true) {
+            // Enter data for Employee
+            String firstName = JOptionPane.showInputDialog(null, "Enter First Name (FINISH to exit):");
+            if (firstName.equals("FINISH")) {
+                break;
+            }
+            String lastName = JOptionPane.showInputDialog(null, "Enter Last Name:");
+            double hourlyRate = Double.parseDouble(JOptionPane.showInputDialog(null, "Enter Hourly Rate:"));
+            int hoursWorked = Integer.parseInt(JOptionPane.showInputDialog(null, "Enter Hours Worked:"));
+
+            // Load data in the object
+            Employee employee = new Employee(firstName, lastName, hourlyRate, hoursWorked);
+            employees.add(employee);
+
+            // Print the data of the object
+            JOptionPane.showMessageDialog(null, employee.getFirstName() + " " + employee.getLastName() +
+                    " has a salary of $" + employee.getSalaryAmount());
+        }
+
+        // Calculate totals
+        double grandTotal = 0;
+        double maxSalary = 0;
+        String maxEmployeeName = "";
+        int numEmployees = employees.size();
+        for (Employee employee : employees) {
+            double salary = employee.getSalaryAmount();
+            grandTotal += salary;
+            if (salary > maxSalary) {
+                maxSalary = salary;
+                maxEmployeeName = employee.getFirstName() + " " + employee.getLastName();
+            }
+        }
+        double avgSalary = grandTotal / numEmployees;
+
+        // Print totals
+        JOptionPane.showMessageDialog(null, "Number of employees processed: " + numEmployees);
+        JOptionPane.showMessageDialog(null, "Grand total salary: $" + grandTotal);
+        JOptionPane.showMessageDialog(null, "Maximum salary: $" + maxSalary + " (Employee Name: " + maxEmployeeName + ")");
+        JOptionPane.showMessageDialog(null, "Average salary: $" + avgSalary);
+    }
+}
