@@ -1,0 +1,49 @@
+import javax.swing.*;
+import java.util.*;
+
+public class InvoiceTest {
+    public static void main(String args[]) {
+
+        List<Invoice> invoices = new ArrayList<>();
+
+        while (true) {
+            // Enter Data to the invoice
+            String partNumber = JOptionPane.showInputDialog(null, "Enter Part number (QUIT to exit):");
+            if (partNumber.equals("QUIT")) {
+                break;
+            }
+            String partDescription = JOptionPane.showInputDialog(null, "Enter Part Description:");
+            int quantity = Integer.parseInt(JOptionPane.showInputDialog(null, "Enter Quantity:"));
+            double price = Double.parseDouble(JOptionPane.showInputDialog(null, "Enter Price:"));
+
+            // Load data in the object
+            Invoice invoice = new Invoice(partNumber, partDescription, quantity, price);
+            invoices.add(invoice);
+
+            // Print the data of the object
+            JOptionPane.showMessageDialog(null, String.format("Invoice %s:\n%s \t%d \t$%.2f ",
+                    invoice.getPartNum(), invoice.getPartDesc(), invoice.getQuantity(), invoice.getPrice()));
+        }
+
+        // Calculate totals
+        double grandTotal = 0;
+        double maxTotal = 0;
+        String maxPartNumber = "";
+        int numInvoices = invoices.size();
+        for (Invoice invoice : invoices) {
+            double total = invoice.getInvoiceAmount();
+            grandTotal += total;
+            if (total > maxTotal) {
+                maxTotal = total;
+                maxPartNumber = invoice.getPartNum();
+            }
+        }
+        double avgTotal = grandTotal / numInvoices;
+
+        // Print totals
+        JOptionPane.showMessageDialog(null, "Number of invoices processed: " + numInvoices);
+        JOptionPane.showMessageDialog(null, "Grand total invoice: $" + grandTotal);
+        JOptionPane.showMessageDialog(null, "Maximum total invoice: $" + maxTotal + " (Part Number: " + maxPartNumber + ")");
+        JOptionPane.showMessageDialog(null, "Average total invoice: $" + avgTotal);
+    }
+}
