@@ -1,0 +1,52 @@
+public class Invoice {
+    private String partNumber;
+    private String partDescription;
+    private int quantity;
+    private double price;
+
+    // Constructor for Invoice
+    public Invoice(String pNum, String pDesc, int qty, double prc) {
+        setPartNum(pNum);
+        setPartDesc(pDesc);
+        setQuantity(qty);
+        setPrice(prc);
+    }
+
+    // *********** set Methods ****************
+    public void setPartNum(String pNum) {
+        partNumber = (pNum != null) ? pNum : "0";
+    }
+
+    public void setPartDesc(String pDesc) {
+        partDescription = (pDesc != null) ? pDesc : "0";
+    }
+
+    public void setQuantity(int qty) {
+        quantity = (qty > 0) ? qty : 0;
+    }
+
+    public void setPrice(double prc) {
+        price = (prc > 0.0) ? prc : 0.0;
+    }
+
+    // *********** get Methods ****************
+    public String getPartNum() {
+        return partNumber;
+    }
+
+    public String getPartDesc() {
+        return partDescription;
+    }
+
+    public int getQuantity() {
+        return quantity;
+    }
+
+    public double getPrice() {
+        return price;
+    }
+
+    public double getInvoiceAmount() {
+        return (double) quantity * price;
+    }
+}
